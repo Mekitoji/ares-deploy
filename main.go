@@ -87,6 +87,9 @@ func ParseInfo(p string) (id, filename string) {
 
 func PackageName(j interface{}) (id, packageName string) {
 	g := j.(map[string]interface{})
+	if g["id"] == nil {
+		log.Fatal("Please specify id field in 'package.json' file.")
+	}
 	id = g["id"].(string)
 	version := g["version"]
 	if version != nil {
