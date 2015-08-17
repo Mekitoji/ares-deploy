@@ -26,7 +26,6 @@ const (
 )
 
 func init() {
-	//chrome != google-chrome
 	flag.StringVar(&path, "path", ".", "declare a path to app folder")
 	flag.StringVar(&path, "p", ".", "declare a path to app folder(shorthand)")
 	flag.StringVar(&out, "output", "", "declare a output path, default put ipk in build/ folder")
@@ -146,7 +145,6 @@ func ListDevice() (list string) {
 func LaunchBrowser(browser, host string) {
 	location := fmt.Sprint("http://", host, ":9998")
 	var cmd *exec.Cmd
-	//TODO: cut into a function
 	if browser == "" {
 		switch runtime.GOOS {
 		case "windows":
